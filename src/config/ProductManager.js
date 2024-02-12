@@ -15,19 +15,15 @@ export class ProductManager {
   async getProductById(id) {
     const prods = JSON.parse(await fs.readFile(this.path, 'utf-8'));
     const prod = prods.find((product) => product.id === id);
-    if (prod) return prod;
-    else return 'El producto no existe';
+    return prod;
   }
   async addProduct(newProduct) {
     const prods = JSON.parse(await fs.readFile(this.path, 'utf-8'));
 
     if (
-      newProduct.code &&
-      newProduct.id &&
       newProduct.title &&
       newProduct.description &&
       newProduct.price &&
-      newProduct.thumbnail &&
       newProduct.code &&
       newProduct.stock
     ) {
@@ -39,6 +35,12 @@ export class ProductManager {
       const index = prods.findIndex((prod) => prod.code === newProduct.code);
 
       if (index === -1) {
+        newProduct.id = crypto.randomBytes(10).toString('hex');
+        newProduct.status = true;
+        if (!newProduct.thumbnail) {
+          newProduct.thumbnail = [];
+        }
+
         prods.push(newProduct);
         await fs.writeFile(this.path, JSON.stringify(prods));
         return 'Producto creado exitosamente';
