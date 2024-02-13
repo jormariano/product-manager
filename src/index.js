@@ -9,6 +9,7 @@
 
 import express from 'express';
 import productsRouter from './routes/productsRouter.js';
+import cartRouter from './routes/cartRouter.js';
 import upload from './config/multer.js';
 import { __dirname } from './path.js';
 
@@ -22,6 +23,8 @@ app.use('/static', express.static(__dirname + '/public'));
 
 // Routes
 app.use('/api/products', productsRouter);
+app.use('/api/cart', cartRouter);
+
 // se agrega el middleware entre la ruta y el contenido de la ruta
 app.post('/upload', upload.single('product'), (req, res) => {
   try {

@@ -10,15 +10,15 @@ export class CartManager {
     return cart;
   }
 
-  async addProductByCart(idProducto, quantityParam) {
+  async addProductByCart(idProduct, quantityParam) {
     const cart = JSON.parse(await fs.readFile(this.products, 'utf-8'));
 
-    const indice = cart.findIndex((product) => product.id == idProducto);
+    const index = cart.findIndex((product) => product.id == idProduct);
 
-    if (indice != -1) {
-      cart[indice].quantity += quantityParam;
+    if (index != -1) {
+      cart[index].quantity += quantityParam;
     } else {
-      const prod = { id: idProducto, quantity: quantityParam };
+      const prod = { id: idProduct, quantity: quantityParam };
       cart.push(prod);
     }
     await fs.writeFile(this.products, JSON.stringify(cart));
