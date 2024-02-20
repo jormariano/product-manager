@@ -1,0 +1,15 @@
+<h2>Productos </h2>
+
+{{#if showProducts }}
+{{!-- Es un metodo #each es utilizado para iterar sobre una lista o un objeto. En este caso, se va a renderizar cada elemento 
+de products. Similar al método forEach() en JavaScript. --}}
+{{#each products}}
+<div>
+    <p><strong>Título:</strong> {{this.title}}</p>
+    <p>Precio: <strong>{{this.price}}</strong></p>
+    <img height="150px" width="100px" src={{this.img}} alt="Imagen de {{this.title}}" />
+</div>
+{{/each}}
+{{else}}
+<p>No se pueden mostrar los productos</p>
+{{/if}}

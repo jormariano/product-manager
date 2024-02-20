@@ -1,0 +1,19 @@
+<!-- Clase 9 - 22': Handlebars como motor de plantilla. Handlebars con la carpeta de Views no se crea si tenes FrontEnd, 
+conectas mediante una API REST el BanckEnd con el Frontend -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce libreria</title>
+    <link rel="stylesheet" href="css/{{css}}">
+</head>
+<body>
+    {{>nav}}
+    
+    {{{body}}}
+    
+    {{>footer}}
+</body>
+</html>
