@@ -5,11 +5,11 @@
 de products. Similar al método forEach() en JavaScript. --}}
 {{#each products}}
 <div>
+    <img height="150px" width="100px" src="{{this.img}}" alt="Imagen de {{this.title}}" />
     <p><strong>Título:</strong> {{this.title}}</p>
     <p>Descripción: {{this.description}}</p>
     <p>Precio: <strong>{{this.price}}</strong></p>
-     <p>Stock: {{this.stock}}</p>
-    <img height="150px" width="100px" src="{{this.img}}" alt="Imagen de {{this.title}}" />
+    <p>Stock: {{this.stock}}</p>
 </div>
 {{/each}}
 {{else}}

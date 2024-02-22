@@ -34,7 +34,7 @@ productsRouter.get('/', async (req, res) => {
     res.render('templates/home', {
       showProducts: true,
       products: prodsLimit,
-      css: 'products.css',
+      css: '/css/products.css',
     });
   } catch (error) {
     res.status(500).render('templates/error', {

@@ -1,11 +1,17 @@
-// Paso 1: npm init --yes
-// Paso 2: "type": "module",
-// Paso 3: crear carpetas src y dentro config, data y rutes
-// Paso 4: npm i express
-// Paso 5: node --watch src/index.js
-// Paso 6: crear .gitignore y escribir node_modules
-// Paso 7: Handlebars como motor de plantilla Clase 9 - 16'
-// Paso 8: npm i socket.io - Clase 10- 57'
+/* Paso 1: npm init --yes
+Paso 2: "type": "module",
+Paso 3: crear carpetas src y dentro config, data y rutes
+Paso 4: npm i express
+Paso 5: node --watch src/index.js 
+ O agregar en package.json: 
+ "scripts": {
+   "dev": "node --watch src/index.js"
+ }
+ Y ejecutar npm run dev
+Paso 6: crear .gitignore y escribir node_modules
+Paso 7: Handlebars como motor de plantilla Clase 9 - 16'
+Paso 8: npm i socket.io - Clase 10- 57'
+*/
 
 // Creamos un CRUD: Create Read Update Delete
 
@@ -56,8 +62,8 @@ io.on('connection', (socket) => {
 });
 
 // Routes
-app.use('/static', express.static(__dirname + '/public'));
-app.use('/api/products', productsRouter, express.static(__dirname + '/public'));
+app.use(express.static('public'));
+app.use('/api/products', productsRouter);
 app.use('/api/cart', cartRouter);
 
 // Se agrega el middleware entre la ruta y el contenido de la ruta
